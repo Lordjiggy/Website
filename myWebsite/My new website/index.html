@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>D_Vision Films</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+  <script src="script.js" defer></script>
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="nav-logo">D_Vision Films</div>
+      <ul class="nav-links">
+        <li><a href="#hero">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#contact">Book</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <section id="hero" class="hero">
+    <div class="hero-content">
+      <h1>Capture Moments.<br>Create Memories.</h1>
+      <p>Professional videography that brings your story to life.</p>
+    </div>
+  </section>
+
+  <section id="about" class="section">
+    <h2>About Us</h2>
+    <p>We are a team of passionate videographers dedicated to turning your most important moments into stunning, cinematic experiences.</p>
+  </section>
+
+  <section id="services" class="section alt">
+    <h2>Our Services</h2>
+    <div class="services-grid">
+      <div class="service-card"><h3>Event Videography</h3><p>Coverage of corporate events, concerts, and special occasions.</p></div>
+      <div class="service-card"><h3>Wedding Films</h3><p>Beautifully crafted wedding stories that last a lifetime.</p></div>
+      <div class="service-card"><h3>Corporate Promos</h3><p>Engaging promotional videos for your brand and business.</p></div>
+      <div class="service-card"><h3>Social Media Ads</h3><p>Short-form, viral-ready video content for all platforms.</p></div>
+    </div>
+    <!-- ...existing code... -->
+<div class="rating-section">
+  <p>Rate our services:</p>
+  <div class="stars" onclick="setServiceRating(event)">
+    <span data-star="1">&#9733;</span>
+    <span data-star="2">&#9733;</span>
+    <span data-star="3">&#9733;</span>
+    <span data-star="4">&#9733;</span>
+    <span data-star="5">&#9733;</span>
+  </div>
+  <p id="service-rating-value"></p>
+</div>
+<!-- ...existing code... -->
+<script>
+  // ...existing code...
+
+  function setServiceRating(event) {
+    if (event.target.dataset.star) {
+      const stars = event.currentTarget.querySelectorAll('span');
+      const selected = parseInt(event.target.dataset.star);
+      stars.forEach((star, i) => {
+        star.classList.toggle('active', i < selected);
+      });
+      document.getElementById('service-rating-value').textContent = `You rated our services ${selected} star${selected > 1 ? 's' : ''}!`;
+    }
+  }
+
+  // ...existing code...
+</script>
+<!-- ...existing code... -->
+  </section>
+
+  <section id="gallery" class="section">
+    <h2>Our Work</h2>
+    <div class="gallery-grid">
+      <img src="gallery/image1.jpg" alt="Gallery 1">
+      <img src="gallery/image2.jpg" alt="Gallery 2">
+      <img src="gallery/image3.jpg" alt="Gallery 3">
+      <img src="gallery/image4.jpg" alt="Gallery 4">
+      <img src="gallery/image5.jpg" alt="Gallery 5">
+      <img src="gallery/image6.jpg" alt="Gallery 6">
+      <img src="gallery/image7.jpg" alt="Gallery 7">
+      <img src="gallery/image8.jpg" alt="Gallery 8">
+      <img src="gallery/image9.jpg" alt="Gallery 9">
+      <img src="gallery/image10.jpg" alt="Gallery 10">
+      <img src="gallery/image11.jpg" alt="Gallery 11">
+      <img src="gallery/image12.jpg" alt="Gallery 12">
+      <img src="gallery/image13.jpg" alt="Gallery 13">
+      <img src="gallery/image14.jpg" alt="Gallery 14">
+      <img src="gallery/image15.jpg" alt="Gallery 15">
+    </div>
+  </section>
+
+  <section id="contact" class="section alt">
+    <h2>Book a Session</h2>
+    <form class="booking-form">
+      <input type="text" placeholder="Your Name" required />
+      <input type="email" placeholder="Your Email" required />
+      <input type="date" required />
+      <button type="submit">Book Now</button>
+    </form>
+  </section>
+
+  <footer class="footer">
+    <p>&copy; 2025 D_Vision Films | All rights reserved.</p>
+  </footer>
+
+</body>
+</html>

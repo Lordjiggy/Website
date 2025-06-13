@@ -1,0 +1,143 @@
+/* Base */
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: #0e0e0e;
+  color: #fff;
+}
+
+/* ✅ Navbar */
+.navbar {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  background: #0e0e0e;
+  z-index: 1000;
+  border-bottom: 1px solid #222;
+}
+.nav-container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.nav-logo {
+  font-weight: 600;
+  font-size: 1.2rem;
+}
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+.nav-links a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 300;
+  transition: 0.3s;
+}
+.nav-links a:hover {
+  color: #e63946;
+}
+
+/* ✅ Hero Section */
+.hero {
+  height: 100vh;
+  background: url('image1.jpg') center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0 20px;
+}
+.hero-content h1 {
+  font-size: 3rem;
+  line-height: 1.2;
+  font-weight: 600;
+}
+.hero-content p {
+  font-size: 1.2rem;
+  margin-top: 10px;
+  color: #ccc;
+}
+
+/* ✅ Sections */
+.section {
+  padding: 100px 20px 60px;
+  max-width: 1100px;
+  margin: auto;
+  text-align: center;
+}
+.section.alt {
+  background: #1a1a1a;
+}
+
+/* ✅ Services Grid */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  margin-top: 40px;
+}
+.service-card {
+  background: #222;
+  padding: 20px;
+  border-radius: 8px;
+  transition: transform 0.3s;
+}
+.service-card:hover {
+  transform: translateY(-5px);
+}
+
+/* ✅ Gallery Grid */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+  margin-top: 40px;
+}
+.gallery-grid img {
+  width: 100%;
+  border-radius: 8px;
+  object-fit: cover;
+  transition: 0.3s ease;
+}
+.gallery-grid img:hover {
+  transform: scale(1.05);
+}
+
+/* ✅ Booking Form */
+.booking-form {
+  max-width: 500px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.booking-form input,
+.booking-form button {
+  padding: 12px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+.booking-form button {
+  background: #e63946;
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+.booking-form button:hover {
+  background: #ff4b5c;
+}
+
+/* ✅ Footer */
+.footer {
+  text-align: center;
+  padding: 30px 20px;
+  font-size: 0.9rem;
+  background: #0e0e0e;
+  border-top: 1px solid #222;
+}

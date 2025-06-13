@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Videography Booking</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet" />
+    <script>
+      function toggleSection(id, el = null) {
+        const section = document.getElementById(id);
+        const isVisible = section.style.display === 'block';
+        document.querySelectorAll('.toggle-content').forEach(sec => sec.style.display = 'none');
+        if (!isVisible) section.style.display = 'block';
+        if (el) {
+          document.querySelectorAll('.section-title').forEach(t => t.classList.remove('active'));
+          el.classList.add('active');
+        }
+      }
+
+      function toggleSectionFromNav(id, event) {
+        event.preventDefault();
+        toggleSection(id);
+        document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+      }
+
+      function setRating(event) {
+        if (event.target.dataset.star) {
+          const stars = document.querySelectorAll('.stars span');
+          const selected = parseInt(event.target.dataset.star);
+          stars.forEach((star, i) => {
+            star.classList.toggle('active', i < selected);
+          });
+          document.getElementById('rating-value').textContent = `You rated us ${selected} star${selected > 1 ? 's' : ''}!`;
+        }
+      }
+    </script>
+    <style>
+      .section-title.with-arrow::after {
+        content: "▼";
+        font-size: 0.8rem;
+        color: #e63946;
+        position: absolute;
+        right: -25px;
+        top: 50%;
+        transform: translateY(-50%);
+        transition: transform 0.3s;
+      }
+      .section-title.with-arrow.active::after {
+        transform: translateY(-50%) rotate(180deg);
+      }
+      .stars span {
+        font-size: 2rem;
+        color: #888;
+        cursor: pointer;
+      }
+      .stars span.active {
+        color: gold;
+      }
+      .gallery-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 10px;
+        margin-top: 20px;
+      }
+      .gallery-grid img {
+        width: 100%;
+        border-radius: 8px;
+        transition: transform 0.3s;
+      }
+      .gallery-grid img:hover {
+        transform: scale(1.05);
+      }
+    </style>
+  </head>
+  <body>
+    <header class="hero-section">
+      <div class="overlay">
+        <img src="image1.jpg" alt="Logo" class="image1.jpg" />
+        <h1 class="main-heading">Capture Moments. Create Memories.</h1>
+        <nav>
+          <ul class="nav-links">
+            <li><a href="#about" onclick="toggleSectionFromNav('about-content', event)">About Us</a></li>
+            <li><a href="#services" onclick="toggleSectionFromNav('services-content', event)">Services</a></li>
+            <li><a href="#gallery" onclick="toggleSectionFromNav('gallery-content', event)">Gallery</a></li>
+            <li><a href="#contact">Book a Session</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <!-- About Us -->
+    <section id="about" class="section">
+      <h2 class="section-title with-arrow" onclick="toggleSection('about-content', this)">About Us</h2>
+      <div id="about-content" class="toggle-content">
+        <p class="section-text">
+          We are a team of passionate videographers capturing life’s most precious moments. From weddings to corporate events, we deliver cinematic-quality videos tailored to your story.
+        </p>
+      </div>
+    </section>
+
+    <!-- Services -->
+    <section id="services" class="section alt-bg">
+      <h2 class="section-title with-arrow" onclick="toggleSection('services-content', this)">Our Services</h2>
+      <div id="services-content" class="toggle-content">
+        <div class="services-lines">
+          <p><strong>Event Videography</strong> – Capture birthdays, parties, and special moments with cinematic storytelling.</p>
+          <p><strong>Wedding Films</strong> – Beautifully shot and edited memories of your big day.</p>
+          <p><strong>Corporate Promos</strong> – Professional content for branding, advertising, and business campaigns.</p>
+          <p><strong>Social Media Ads</strong> – Short-form videos crafted for engagement on Instagram, TikTok, and more.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Gallery -->
+    <section id="gallery" class="section">
+      <h2 class="section-title with-arrow" onclick="toggleSection('gallery-content', this)">Our Work</h2>
+      <div id="gallery-content" class="toggle-content">
+        <p class="section-text">Take a look at some of our past works:</p>
+        <div class="gallery-grid">
+          <!img src="gallery/image{i}.jpg" alt="Gallery Image {i}" /> 
+        </div>
+        <div class="rating-section">
+          <p>Rate our work:</p>
+          <div class="stars" onclick="setRating(event)">
+            <span data-star="1">&#9733;</span>
+            <span data-star="2">&#9733;</span>
+            <span data-star="3">&#9733;</span>
+            <span data-star="4">&#9733;</span>
+            <span data-star="5">&#9733;</span>
+          </div>
+          <p id="rating-value"></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Booking Form -->
+    <section id="contact" class="section">
+      <h2 class="section-title" onclick="toggleSection('booking-form-wrapper')">Book a Session</h2>
+      <div id="booking-form-wrapper" class="toggle-content">
+        <form id="booking-form" class="booking-form">
+          <input type="text" id="name" placeholder="Your Name" required />
+          <input type="email" id="email" placeholder="Your Email" required />
+          <input type="date" id="date" required />
+          <button type="submit">Book Now</button>
+        </form>
+        <div id="confirmation" class="confirmation hidden"></div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <p>&copy; 2025 D_Vision Films | Crafted with creativity</p>
+    </footer>
+  </body>
+</html>
